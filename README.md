@@ -1,29 +1,62 @@
-# 🔍 Circle to Search for Chrome
+<div align="center">
+  <img src="icon128.png" alt="Circle to Search Logo" width="128" />
 
-[![Manifest V3](https://img.shields.io/badge/Manifest-V3-blue.svg)](https://developer.chrome.com/docs/extensions/mv3/intro/)
-[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/Aman-nitb-cse/circle-to-search/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+  # 🔍 Circle to Search
 
-Bring the seamless **Circle to Search** experience to Google Chrome on desktop. Press a custom shortcut, circle any element or visual on your screen with a vibrant Google Glow outline, and instantly search visual matches via Google Lens.
+  **Desktop visual search, reimagined.**
+
+  [![Manifest V3](https://img.shields.io/badge/Manifest-V3-blue.svg)](https://developer.chrome.com/docs/extensions/mv3/intro/)
+  [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/Aman-nitb-cse/circle-to-search/releases)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Aman-nitb-cse/circle-to-search/pulls)
+</div>
 
 ---
+
+Bring Android's flagship **Circle to Search** experience to Google Chrome. Press a custom shortcut, trace an outline around any element on your screen with a vibrant Material glow, and instantly explore visual matches via Google Lens.
 
 ## ✨ Features
 
-- **Gesture-Based Visual Search:** Circle, draw, or lasso anything on screen to trigger an instant Google Images / Lens search.
-- **Custom Shortcut Engine:** Bind single keys (`Alt`) or multi-key combinations (`Ctrl + Shift + S`) with live key-recording in the popup.
-- **Google Glow Canvas:** Dual-pass neon outline with cursor particle effects and dynamic four-sided edge lighting.
-- **Clean Screenshot Capture:** The interface automatically hides before capturing, preventing the selection ring or glow from contaminating search queries.
-- **Strict Privacy:** Operates entirely client-side. Zero telemetry, zero analytics tracking, and no external data storage.
-
----
+*   🪄 **Lasso & Circle Gesture:** Freehand draw a circle or box around images, text, or UI elements.
+*   ⌨️ **Dynamic Hotkey Engine:** Record single keys (`Alt`) or multi-key combos (`Ctrl + Shift + S`) via an intuitive popup menu.
+*   🌈 **Dual-Pass Material Glow:** A vibrant, 4-color animated trail with cursor orb illumination and active edge halos.
+*   🛡️ **Pristine Capture System:** The drawing canvas auto-hides milliseconds before capturing, guaranteeing clean, artifact-free search crops.
+*   ⚡ **Zero Friction:** Bypasses manual screenshots, file saving, and image-url copying.
 
 ## 🚀 Installation
 
-### Option 1: Chrome Web Store (Recommended)
-Install directly from the [Chrome Web Store](https://chrome.google.com/webstore) *(Link coming soon)*.
+### 📦 Chrome Web Store
+*(Pending Approval — Link coming soon)*
 
-### Option 2: Manual Developer Mode
-1. Clone or download the repository:
-   ```bash
-   git clone [https://github.com/Aman-nitb-cse/circle-to-search.git](https://github.com/Aman-nitb-cse/circle-to-search.git)
+### 🛠️ Manual Installation (Developer Mode)
+1. **Download** the latest release from the [Releases page](https://github.com/Aman-nitb-cse/circle-to-search/releases).
+2. **Extract** the `.zip` file into a dedicated folder.
+3. Open Google Chrome and navigate to `chrome://extensions/`.
+4. Enable **Developer mode** in the top-right corner.
+5. Click **Load unpacked** and select your extracted folder.
+6. *Tip: Pin the extension to your toolbar for quick access to shortcut settings.*
+
+## 💡 Usage
+
+1. Press your assigned shortcut key (Default: `Alt`).
+2. Click and drag your cursor to draw a circle around your target subject.
+3. Release the mouse. The clean crop will automatically open in a new **Google Lens** tab.
+4. *Press `Esc` at any time to cancel your selection.*
+
+## 🔒 Privacy First
+
+This extension operates **100% locally**.
+*   **No Tracking:** Zero analytics, telemetry, or remote tracking scripts.
+*   **Direct Dispatch:** Image crops are sent exclusively and directly to `lens.google.com`.
+*   **Local Storage:** Your shortcut preferences never leave your browser (`chrome.storage.local`).
+
+## 🤝 Contributing & Support
+
+Found a bug, or want to suggest a new feature? 
+*   🐛 **Report an Issue:** [Open a Bug Report](https://github.com/Aman-nitb-cse/circle-to-search/issues)
+*   🛠️ **Pull Requests:** PRs are welcome! Please ensure UI changes are tested on both light and dark web pages.
+
+---
+<div align="center">
+  <i>Developed by Aman Kumar Patel • Distributed under the <a href="LICENSE">MIT License</a></i>
+</div>

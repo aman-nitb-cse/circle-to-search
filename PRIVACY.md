@@ -1,119 +1,96 @@
-# Privacy Policy – Circle to Search
-
+# Privacy Policy — Circle to Search
 
 **Developer:** Aman Kumar Patel  
-**Contact Email:** aman.nitb.cse@gmail.com
+**Contact:** [aman.nitb.cse@gmail.com](mailto:aman.nitb.cse@gmail.com)
 
-## 1. Introduction
+Circle to Search is a Chrome extension that lets you select content visible in the active browser tab and submit it to Google Lens for a visual search. You can use Draw, Rectangle, or Full Screen mode.
 
-Circle to Search is a Chrome browser extension designed to make visual discovery simple and convenient. It allows users to select or draw around an object or area visible on an active webpage and search for visually similar content using Google Lens.
+This policy explains what the extension accesses, how it processes that information, and when information is sent to another service.
 
-We respect your privacy and are committed to handling information responsibly. This Privacy Policy describes what information the Extension accesses, how it is processed, and when it may be shared with third-party services.
+## 1. Information the extension accesses
 
-By installing or using Circle to Search, you acknowledge the practices described in this Privacy Policy.
+When you activate Circle to Search and use its features, the extension may access or process the following information:
 
-## 2. Information Accessed by the Extension
+- **Visible tab content:** The extension captures an image of the currently visible area of the active tab when you initiate a search. Draw and Rectangle modes use the area you select. Full Screen mode uses the entire visible tab viewport.
+- **Selection input:** In Draw and Rectangle modes, pointer coordinates are processed locally to display your selection and calculate the image crop. These coordinates are not separately transmitted or stored as activity records.
+- **Keyboard shortcut activation:** Chrome's Commands API handles the shortcut configured for the extension. The extension receives the activation command; it does not record general keystrokes or monitor what you type into webpages.
+- **Extension preferences:** The selected default search mode and appearance preference (Auto, Light, or Dark) are stored locally using Chrome Storage.
+- **Temporary selected image:** The cropped image is temporarily placed in Chrome's local extension storage so the extension's search page can read it and submit it to Google Lens.
 
-Circle to Search accesses only the information necessary to provide its core visual search functionality.
+The extension does not ask you to create an account or provide your name, email address, password, payment details, or physical location.
 
-Depending on how you use the Extension, this may include:
+Please avoid selecting content that you do not want to send to Google, including confidential, personal, or sensitive information.
 
-- **Screen Content:** A screenshot of the currently visible browser tab, captured when you initiate a visual search.
-- **Selected Image Content:** The portion of the screenshot corresponding to the area you select for visual search.
-- **Keyboard Input:** Keyboard events are monitored locally to detect your configured activation shortcut.
-- **Extension Preferences:** Your preferred keyboard shortcut and related settings, stored locally using Chrome Storage.
+## 2. How information is used
 
-The Extension does not require users to register an account or provide personal details such as their name, email address, passwords, payment information, or physical address.
+The extension uses the information described above only to provide its visual-search features:
 
-## 3. How Information Is Used
+- to display the selection interface in the active tab;
+- to let you choose Draw, Rectangle, or Full Screen mode;
+- to capture and crop the visible tab content you chose to search;
+- to submit the resulting image to Google Lens when you initiate a search; and
+- to remember your default search mode and appearance preference.
 
-The information accessed by Circle to Search is used exclusively to provide its intended functionality.
+Selection coordinates are used locally to perform the selection and crop. Shortcut activation is handled by Chrome's extension-command mechanism. The extension does not use this information for advertising, behavioral profiling, or unrelated purposes.
 
-Specifically, it is used to:
+## 3. Google Lens and other third-party services
 
-- Activate the visual selection interface on the current webpage.
-- Allow users to draw around objects or areas they want to search.
-- Capture and crop the user-selected portion of the visible screen.
-- Submit the selected image to Google Lens to retrieve relevant visual search results.
-- Store and retrieve user-configured keyboard shortcuts and preferences.
+A visual search requires sending the image to Google Lens. After you initiate a search, Circle to Search opens an extension page that submits the selected image to **Google Lens** at `lens.google.com`.
 
-The Extension does not use collected information for advertising, behavioral profiling, or purposes unrelated to its primary functionality.
+- In **Draw** and **Rectangle** modes, the image sent is the crop corresponding to the area you selected.
+- In **Full Screen** mode, the image sent is the entire visible viewport of the active tab.
 
-## 4. Third-Party Services and Data Sharing
+Google receives and processes the image to provide its visual-search service. Google's handling, use, and retention of submitted content are governed by Google's own terms and privacy practices, which Circle to Search does not control. Review [Google's Privacy Policy](https://policies.google.com/privacy) for more information.
 
-Circle to Search integrates with Google Lens to provide visual search functionality.
+The extension also provides a **Report a Bug** link that opens the project's GitHub Issues page. Opening that link is optional. Any information you choose to submit there is handled by GitHub under [GitHub's Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement). The extension does not automatically attach browsing data or diagnostic reports to an issue.
 
-When a user completes a selection and initiates a search, the Extension:
+## 4. Storage and retention
 
-1. Captures the currently visible browser tab.
-2. Crops the image to include only the selected area.
-3. Submits the cropped image to Google Lens for visual search processing.
+- Your default search mode and appearance preference are stored locally in Chrome using `chrome.storage.local`.
+- The selected image is temporarily stored in `chrome.storage.local` so the extension's search page can retrieve it. The search page removes that temporary image entry when it reads it, before submitting the image to Google Lens.
+- If the search page does not load or read the temporary image, that entry may remain in local extension storage until it is overwritten, removed, or the extension's stored data is cleared.
+- Circle to Search does not operate a developer-controlled server or database for storing users' images, preferences, browsing history, or search activity.
 
-The selected image is transmitted to Google's services solely to fulfill the visual search request initiated by the user.
+Once an image has been submitted, Google may retain or otherwise process it according to Google's own policies. Circle to Search cannot delete information held by Google.
 
-Google processes submitted content according to its own privacy policies and terms of service. We do not control Google's independent data processing, storage, or retention practices.
+You can clear the extension's locally stored data by removing the extension or clearing its site/extension data through Chrome.
 
-For additional information, please review Google's Privacy Policy:
+## 5. Data sharing and sale
 
-https://policies.google.com/privacy
+The developer does not sell, rent, or trade users' information.
 
-We do not sell, rent, or trade user information. We do not share user information with third parties for advertising or unrelated purposes.
+The extension sends the image you choose to search to Google Lens because that transfer is necessary to provide the visual-search feature you requested. The extension does not send selected images, browsing history, preferences, or shortcut activity to the developer. It does not share information with third parties for advertising or unrelated purposes.
 
-## 5. Data Storage and Retention
+## 6. Permissions
 
-Circle to Search uses Chrome's local storage functionality to save user preferences, including configured keyboard shortcuts.
+Circle to Search requests the following Chrome permissions:
 
-The Extension also temporarily stores the cropped image in local browser storage to transfer it to the Google Lens search page.
+- **`activeTab`:** Provides temporary access to the active tab after you invoke the extension's keyboard command. This access is used to capture the visible tab for the search you initiate.
+- **`scripting`:** Allows the extension to inject its selection interface and supporting styles into the active tab after activation.
+- **`storage`:** Stores your default mode and appearance preference, and temporarily holds the selected image while it is passed to the extension's search page.
 
-The Extension does not operate its own backend server or maintain a centralized database of users, browsing activity, or search history.
+The extension uses Chrome's **Commands API** to receive its configured keyboard shortcut. It does not request broad host permissions or permanent access to all websites. Chrome may restrict extension injection and screen capture on certain browser pages, including Chrome-internal pages and other restricted pages.
 
-The Extension does not intentionally retain selected images beyond the processing required to initiate the visual search. Temporary image data may remain in local browser storage until overwritten or cleared.
+## 7. Security
 
-Images submitted to Google Lens are subject to Google's applicable data retention and privacy practices.
+Circle to Search is designed to process selection coordinates in the active tab, keep preferences in local extension storage, and send selected image content only when you initiate a visual search. The extension does not operate its own server for collecting or storing this information.
 
-## 6. Permissions and Their Purpose
+No method of electronic storage or transmission is completely secure. Once you submit an image to Google Lens or information to GitHub, the relevant provider's security and privacy practices apply.
 
-Circle to Search requests only the browser permissions necessary for its functionality.
+## 8. Children's privacy
 
-The following permissions are used:
+Circle to Search is not designed to collect personal information from children. The extension does not require account registration and the developer does not knowingly collect children's personal information.
 
-- **activeTab:** Provides temporary access to the currently active browser tab after the user explicitly clicks the Extension icon.
-- **storage:** Stores keyboard shortcut configurations and user preferences locally.
-- **scripting:** Allows the Extension to inject its visual selection interface into the active webpage after user activation.
+## 9. Changes to this policy
 
-The Extension does not request unrestricted access to all websites through broad host permissions.
+This Privacy Policy may be updated if the extension's functionality or privacy practices change. The revised policy will be published at this location with an updated effective or revision date. Please review it periodically.
 
-These permissions are used solely to support the Extension's stated purpose.
+## 10. Contact
 
-## 7. Data Security
+For questions or concerns about this Privacy Policy or Circle to Search, contact:
 
-We take reasonable measures to minimize unnecessary access to user information and limit data processing to what is required for visual search functionality.
-
-The Extension does not transmit keyboard activity, browsing history, or user preferences to its developer or an independent analytics server.
-
-However, no method of electronic transmission or storage can be guaranteed to be completely secure. Users should also review the security and privacy practices of third-party services they choose to use.
-
-## 8. Children's Privacy
-
-Circle to Search is not specifically designed to collect personal information from children.
-
-The Extension does not knowingly collect personal information from children. It does not require account registration or the submission of personal details to the developer.
-
-## 9. Changes to This Privacy Policy
-
-This Privacy Policy may be updated periodically to reflect changes in the Extension's functionality, applicable requirements, or privacy practices.
-
-Any changes will be published on this page, along with an updated revision date.
-
-Users are encouraged to review this page periodically to stay informed about how their information is handled.
-
-## 10. Contact Information
-
-If you have any questions, concerns, or requests regarding this Privacy Policy or the privacy practices of Circle to Search, please contact:
-
-**Extension:** Circle to Search  
-**Developer:** Aman Kumar Patel  
-**Email:** aman.nitb.cse@gmail.com
+**Aman Kumar Patel**  
+**Email:** [aman.nitb.cse@gmail.com](mailto:aman.nitb.cse@gmail.com)
 
 ---
 

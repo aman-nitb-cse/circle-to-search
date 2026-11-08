@@ -4,12 +4,9 @@
 
 <br />
 
-<img src="icon128.png" alt="Circle to Search" width="150" />
+<img src="icon128.png" alt="Circle to Search Logo" width="120" />
 
-<br />
-<br />
-
-# Circle to Search
+<h1>Circle to Search</h1>
 
 ### Desktop visual search, reimagined.
 
@@ -28,9 +25,7 @@ A smarter way to discover anything you see on your screen.
 
 <br />
 
-[**Features**](#-features) · [**Installation**](#-installation) · [**Usage**](#-how-to-use) · [**Privacy**](#-privacy--security)
-
-<br />
+[**Features**](#-features) · [**How to Use**](#-how-to-use) · [**Privacy**](#-privacy--security)
 
 </div>
 
@@ -40,11 +35,44 @@ Bring Android's flagship **Circle to Search** experience to Google Chrome.
 
 Press a custom keyboard shortcut, draw around anything visible on your screen with a beautiful Google-inspired glow, and instantly discover visually similar results using Google Lens.
 
+<div align="center">
+
+<table>
+<tr>
+<td align="center">
+
+<h2>🚀 Get Circle to Search</h2>
+
+**Your next visual search starts here.**
+
+Install directly from the official Chrome Web Store.
+
+<br />
+
+<a href="https://chromewebstore.google.com/detail/circle-to-search/dpadfcjjnkjabijdiagaadnhnghemdmh">
+<img src="https://img.shields.io/badge/Add%20to%20Chrome-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Add to Chrome" />
+</a>
+
+<br />
+<br />
+
+<sub>Free · Easy to Install · Privacy-conscious</sub>
+
+</td>
+</tr>
+</table>
+
+</div>
+
+---
+
 ## 🎬 See It in Action
 
 <div align="center">
 
-[![Circle to Search Demo](https://img.youtube.com/vi/dJhkZ406E24/maxresdefault.jpg)](https://www.youtube.com/watch?v=dJhkZ406E24)
+<a href="https://www.youtube.com/watch?v=dJhkZ406E24">
+<img src="https://img.youtube.com/vi/dJhkZ406E24/maxresdefault.jpg" alt="Circle to Search Demo" width="85%" />
+</a>
 
 **▶ Watch the full demonstration on YouTube**
 
@@ -64,27 +92,6 @@ Everything you need for a seamless visual search experience, right inside Chrome
 | ⚡ **Instant Image Capture** | Automatically captures and crops your selected screen area. |
 | 🔎 **Google Lens Integration** | Discover visually similar content through Google Lens. |
 | 🛡️ **Privacy-conscious Permissions** | Uses Chrome's `activeTab` permission instead of unrestricted website access. |
-
----
-
-## 🚀 Installation
-
-### 🌐 Chrome Web Store
-
-**Coming Soon!**
-
-The extension is currently awaiting Chrome Web Store approval.
-
-### 🛠️ Manual Installation
-
-1. Download the latest ZIP from [GitHub Releases](https://github.com/Aman-nitb-cse/circle-to-search/releases).
-2. Extract the downloaded ZIP into a folder.
-3. Open Chrome and navigate to `chrome://extensions/`.
-4. Enable **Developer mode**.
-5. Click **Load unpacked**.
-6. Select the extracted extension folder.
-
-> 💡 **Pro Tip:** Pin Circle to Search to your Chrome toolbar for quick access.
 
 ---
 

@@ -1,5 +1,8 @@
 # Privacy Policy — Circle to Search
 
+**Effective date:** November 8, 2026  
+**Last updated:** November 8, 2026
+
 **Developer:** Aman Kumar Patel  
 **Contact:** [aman.nitb.cse@gmail.com](mailto:aman.nitb.cse@gmail.com)
 

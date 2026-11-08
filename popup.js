@@ -1,82 +1,89 @@
-const btn = document.getElementById('record-btn');
-const display = document.getElementById('current-key');
-const hint = document.getElementById('record-hint');
+// Circle to Search v2.0.0 popup settings
+const modeButtons = Array.from(document.querySelectorAll('.mode-option'));
+const modeNote = document.getElementById('mode-note');
+const themeSelect = document.getElementById('theme-select');
+const currentKey = document.getElementById('current-key');
+const shortcutHint = document.getElementById('shortcut-hint');
+const changeShortcutButton = document.getElementById('change-shortcut');
+const systemDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-let isRecording = false;
-let pressedSet = new Set();
-let maxCombo = [];
+const modeDescriptions = {
+  draw: 'Draw freely around an object or area to select it.',
+  rectangle: 'Drag from one corner to the opposite corner to select an area.',
+  fullscreen: 'Search the entire visible browser screen.'
+};
 
-function formatKeyName(k) {
-  if (k === ' ') return 'Space';
-  if (k === 'Control') return 'Ctrl';
-  if (k.length === 1) return k.toUpperCase();
-  return k;
+function applyPopupTheme(preference) {
+  const resolved = preference === 'dark' || (preference === 'auto' && systemDarkQuery.matches) ? 'dark' : 'light';
+  document.documentElement.dataset.theme = resolved;
 }
 
-function renderCombo(keysArray) {
-  return keysArray.map(formatKeyName).join(' + ');
-}
-
-chrome.storage.local.get(['shortcutCombo'], (res) => {
-  if (res.shortcutCombo && Array.isArray(res.shortcutCombo) && res.shortcutCombo.length > 0) {
-    display.textContent = renderCombo(res.shortcutCombo);
-  } else {
-    chrome.storage.local.set({ shortcutCombo: ['Alt'] });
-    display.textContent = 'Alt';
-  }
-});
-
-btn.addEventListener('click', () => {
-  if (isRecording) return;
-  isRecording = true;
-  pressedSet.clear();
-  maxCombo = [];
-  btn.textContent = 'Hold keys... Release to save';
-  btn.classList.add('recording');
-  display.textContent = 'Waiting for keys...';
-  hint.textContent = 'Press 1 or multiple keys together, then release';
-});
-
-window.addEventListener('keydown', (e) => {
-  if (!isRecording) return;
-  e.preventDefault();
-  e.stopPropagation();
-
-  const normKey = e.key.length === 1 ? e.key.toLowerCase() : e.key;
-  pressedSet.add(normKey);
-
-  const modOrder = ['Control', 'Alt', 'Shift', 'Meta'];
-  const currentKeys = Array.from(pressedSet).sort((a, b) => {
-    const ia = modOrder.indexOf(a);
-    const ib = modOrder.indexOf(b);
-    if (ia !== -1 && ib !== -1) return ia - ib;
-    if (ia !== -1) return -1;
-    if (ib !== -1) return 1;
-    return a.localeCompare(b);
+function setDefaultMode(mode) {
+  if (!Object.prototype.hasOwnProperty.call(modeDescriptions, mode)) mode = 'rectangle';
+  modeButtons.forEach((button) => {
+    const selected = button.dataset.mode === mode;
+    button.classList.toggle('selected', selected);
+    button.setAttribute('aria-pressed', String(selected));
   });
+  modeNote.textContent = modeDescriptions[mode];
+}
 
-  if (currentKeys.length >= maxCombo.length) {
-    maxCombo = currentKeys;
-  }
-
-  display.textContent = renderCombo(maxCombo);
-});
-
-window.addEventListener('keyup', (e) => {
-  if (!isRecording) return;
-  e.preventDefault();
-  e.stopPropagation();
-
-  const normKey = e.key.length === 1 ? e.key.toLowerCase() : e.key;
-  pressedSet.delete(normKey);
-
-  if (pressedSet.size === 0 && maxCombo.length > 0) {
-    isRecording = false;
-    chrome.storage.local.set({ shortcutCombo: maxCombo }, () => {
-      display.textContent = renderCombo(maxCombo);
-      btn.textContent = 'Record Shortcut Keys';
-      btn.classList.remove('recording');
-      hint.textContent = 'Shortcut saved! Refresh open tabs to use.';
+modeButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const mode = button.dataset.mode;
+    if (!Object.prototype.hasOwnProperty.call(modeDescriptions, mode)) return;
+    setDefaultMode(mode);
+    chrome.storage.local.set({ defaultMode: mode }, () => {
+      if (chrome.runtime.lastError) console.warn('Circle to Search could not save default mode:', chrome.runtime.lastError.message);
     });
-  }
+  });
 });
+
+themeSelect.addEventListener('change', () => {
+  const preference = ['auto', 'light', 'dark'].includes(themeSelect.value) ? themeSelect.value : 'auto';
+  chrome.storage.local.set({ themePreference: preference }, () => {
+    if (chrome.runtime.lastError) console.warn('Circle to Search could not save appearance:', chrome.runtime.lastError.message);
+    applyPopupTheme(preference);
+  });
+});
+
+systemDarkQuery.addEventListener?.('change', () => {
+  if (themeSelect.value === 'auto') applyPopupTheme('auto');
+});
+
+function formatShortcut(shortcut) {
+  if (!shortcut) return 'Not assigned';
+  return shortcut.replace(/Command/g, '⌘').replace(/\+/g, ' + ');
+}
+
+function loadCommandShortcut() {
+  chrome.commands.getAll((commands) => {
+    if (chrome.runtime.lastError) {
+      currentKey.textContent = 'Unavailable';
+      shortcutHint.textContent = 'Open Chrome shortcut settings to assign a key combination.';
+      return;
+    }
+    const command = (commands || []).find((item) => item.name === 'activate-visual-search');
+    currentKey.textContent = formatShortcut(command?.shortcut || '');
+    if (!command?.shortcut) shortcutHint.textContent = 'No shortcut is assigned. Choose one in Chrome shortcut settings.';
+  });
+}
+
+changeShortcutButton.addEventListener('click', () => {
+  chrome.tabs.create({ url: 'chrome://extensions/shortcuts' }, () => {
+    if (chrome.runtime.lastError) console.warn('Circle to Search could not open Chrome shortcut settings:', chrome.runtime.lastError.message);
+  });
+});
+
+chrome.storage.local.get(['defaultMode', 'themePreference'], (settings) => {
+  const mode = Object.prototype.hasOwnProperty.call(modeDescriptions, settings.defaultMode) ? settings.defaultMode : 'rectangle';
+  setDefaultMode(mode);
+  if (settings.defaultMode !== mode) chrome.storage.local.set({ defaultMode: mode });
+
+  const theme = ['auto', 'light', 'dark'].includes(settings.themePreference) ? settings.themePreference : 'auto';
+  themeSelect.value = theme;
+  if (settings.themePreference !== theme) chrome.storage.local.set({ themePreference: theme });
+  applyPopupTheme(theme);
+});
+
+loadCommandShortcut();

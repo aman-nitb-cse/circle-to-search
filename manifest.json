@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Circle to Search",
+  "version": "3.0.0",
+  "description": "Select an area or the full screen to perform a visual search with Google Lens.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_title": "Circle to Search"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "search-full-screen": {
+      "suggested_key": {
+        "default": "Alt+Shift+F",
+        "mac": "Command+Shift+L"
+      },
+      "description": "Full screen: instantly search the whole visible tab with Google Lens"
+    },
+    "activate-visual-search": {
+      "suggested_key": {
+        "default": "Alt+Shift+S",
+        "mac": "Command+Shift+X"
+      },
+      "description": "Rectangle / Draw: select an area to search with Google Lens"
+    }
+  }
+}

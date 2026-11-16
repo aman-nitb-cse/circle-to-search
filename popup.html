@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circle to Search</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      color-scheme: light;
+      --page: #fff; --panel: #f9f8ff; --border: #e4e2f2; --text: #1e1b3a; --muted: #6a6788;
+      --option: #fff; --selected-bg: #f1ecff; --selected-text: #5b21b6; --accent: #8b5cf6;
+      --badge-bg: #f1ecff; --badge-border: #ddd6fe; --badge-text: #6d28d9;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --page: #16162a; --panel: #1e1e36; --border: #34345a; --text: #ece9ff; --muted: #b4b1d2;
+      --option: #26264a; --selected-bg: #31275f; --selected-text: #ddd6fe; --accent: #a78bfa;
+      --badge-bg: #2d2459; --badge-border: #4a3b92; --badge-text: #ddd6fe;
+    }
+    body {
+      width: 320px; margin: 0; padding: 14px;
+      color: var(--text); background: var(--page);
+      font-family: 'Google Sans', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+    .header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+    .brand { display: flex; align-items: center; gap: 8px; }
+    .brand img { width: 28px; height: 28px; }
+    h1 { margin: 0; font-size: 15px; font-weight: 700; }
+    select {
+      height: 26px; padding: 0 6px; border: 1px solid var(--border); border-radius: 999px;
+      background: var(--panel); color: var(--text); font: 600 11px inherit; cursor: pointer; outline: 0;
+    }
+    .panel { margin-bottom: 8px; padding: 10px; border: 1px solid var(--border); border-radius: 12px; background: var(--panel); }
+    .label { display: block; margin-bottom: 8px; color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase; }
+
+    .mode-options { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .mode-option {
+      display: flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 6px;
+      border: 1px solid var(--border); border-radius: 9px; background: var(--option); color: var(--text);
+      cursor: pointer; font: 650 12px inherit;
+    }
+    .mode-option.selected { border-color: var(--accent); background: var(--selected-bg); color: var(--selected-text); }
+    .mode-option svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+
+    .prompt-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .prompt-head .label { flex: 1; margin: 0; }
+    .prompt-count { color: var(--muted); font-size: 10px; font-variant-numeric: tabular-nums; }
+    .switch { position: relative; width: 30px; height: 17px; cursor: pointer; }
+    .switch input { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+    .switch-track { position: absolute; inset: 0; border-radius: 999px; background: var(--border); }
+    .switch-track::after { content: ''; position: absolute; top: 2px; left: 2px; width: 13px; height: 13px; border-radius: 50%; background: #fff; transition: transform .12s; }
+    .switch input:checked + .switch-track { background: var(--accent); }
+    .switch input:checked + .switch-track::after { transform: translateX(13px); }
+    .prompt-input {
+      display: block; width: 100%; min-height: 44px; max-height: 100px; padding: 7px 9px; resize: vertical;
+      border: 1px solid var(--border); border-radius: 8px; background: var(--option); color: var(--text);
+      font: 500 12px/1.4 inherit;
+    }
+    .prompt-input:focus { outline: 0; border-color: var(--accent); }
+    .prompt-panel.is-off .prompt-input { opacity: .5; }
+
+    .shortcut-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 0; font-size: 12px; font-weight: 650; }
+    .shortcut-row + .shortcut-row { border-top: 1px solid var(--border); }
+    .key-badge { padding: 4px 8px; border: 1px solid var(--badge-border); border-radius: 7px; background: var(--badge-bg); color: var(--badge-text); font-size: 11px; font-weight: 800; white-space: nowrap; }
+    .key-badge { font-family: inherit; cursor: pointer; }
+    .key-badge:hover { border-color: var(--accent); }
+    .key-badge.is-empty { opacity: .6; font-weight: 650; }
+    .hint.is-error { color: #ea4335; font-weight: 650; }
+    .hint { margin-top: 8px; color: var(--muted); font-size: 10.5px; line-height: 1.4; }
+    .hint:empty { display: none; }
+    .header-actions { display: flex; align-items: center; gap: 6px; }
+    .bug-link {
+      display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px;
+      border: 1px solid var(--border); border-radius: 999px; background: var(--panel);
+      color: var(--muted); text-decoration: none;
+    }
+    .bug-link:hover, .bug-link:focus-visible { color: #ea4335; border-color: #ea4335; outline: 0; }
+    .bug-link svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <img src="icon48.png" alt="">
+      <h1>Circle to Search</h1>
+    </div>
+    <div class="header-actions">
+      <a class="bug-link" href="https://github.com/Aman-nitb-cse/circle-to-search/issues/new" target="_blank" rel="noopener noreferrer" title="Report a bug" aria-label="Report a bug">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8a4 4 0 0 1 8 0v1H8V8Z"/><path d="M6 9h12v5a6 6 0 0 1-12 0V9Z"/><path d="M12 12v8M3 13h3M18 13h3M4 7l3 2M20 7l-3 2M4 20l3-2.5M20 20l-3-2.5"/></svg>
+      </a>
+      <select id="theme-select" aria-label="Appearance">
+        <option value="auto">Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+  </header>
+
+  <section class="panel">
+    <span class="label">Mode</span>
+    <div class="mode-options" role="group" aria-label="Default selection mode">
+      <button type="button" class="mode-option" data-mode="draw" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17.5V20h2.5L19 7.5 16.5 5 4 17.5Z"/><path d="m14.8 6.7 2.5 2.5"/></svg>
+        Draw
+      </button>
+      <button type="button" class="mode-option" data-mode="rectangle" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/></svg>
+        Rectangle
+      </button>
+    </div>
+  </section>
+
+  <section class="panel prompt-panel" id="prompt-panel">
+    <div class="prompt-head">
+      <span class="label" id="prompt-title">Prompt</span>
+      <span class="prompt-count" id="prompt-count">0/300</span>
+      <label class="switch">
+        <input type="checkbox" id="prompt-toggle" role="switch" aria-labelledby="prompt-title" checked>
+        <span class="switch-track"></span>
+      </label>
+    </div>
+    <textarea id="prompt-input" class="prompt-input" rows="2" maxlength="300" placeholder="Optional" aria-labelledby="prompt-title"></textarea>
+  </section>
+
+  <section class="panel">
+    <span class="label">Shortcuts</span>
+    <div class="shortcut-row"><span>Full screen</span><button type="button" class="key-badge" id="key-fullscreen" title="Click to open keyboard shortcut settings">Alt + Shift + F</button></div>
+    <div class="shortcut-row"><span>Rectangle / Draw</span><button type="button" class="key-badge" id="key-select" title="Click to open keyboard shortcut settings">Alt + Shift + S</button></div>
+    <div class="hint" id="shortcut-hint" role="status" aria-live="polite">Click a shortcut to change it in the browser's keyboard settings.</div>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>

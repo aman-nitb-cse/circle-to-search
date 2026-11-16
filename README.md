@@ -1,153 +1,146 @@
-# 🔍 Circle to Search
-
 <div align="center">
 
-<img src="icon128.png" alt="Circle to Search Logo" width="120" />
+<img src="assets/hero.svg" alt="Circle to Search" width="100%">
 
-# Circle to Search
+<br>
 
-### Desktop Visual Search, Reimagined.
+[![Stars](https://img.shields.io/github/stars/Aman-nitb-cse/circle-to-search?style=for-the-badge&logo=github&color=8b5cf6&labelColor=1e1b3a)](https://github.com/Aman-nitb-cse/circle-to-search/stargazers)
+[![Forks](https://img.shields.io/github/forks/Aman-nitb-cse/circle-to-search?style=for-the-badge&logo=github&color=8b5cf6&labelColor=1e1b3a)](https://github.com/Aman-nitb-cse/circle-to-search/network/members)
+[![Issues](https://img.shields.io/github/issues/Aman-nitb-cse/circle-to-search?style=for-the-badge&color=8b5cf6&labelColor=1e1b3a)](https://github.com/Aman-nitb-cse/circle-to-search/issues)
+[![Last commit](https://img.shields.io/github/last-commit/Aman-nitb-cse/circle-to-search?style=for-the-badge&color=8b5cf6&labelColor=1e1b3a)](https://github.com/Aman-nitb-cse/circle-to-search/commits)
+![Manifest V3](https://img.shields.io/badge/Manifest-V3-8b5cf6?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=1e1b3a)
+![Version](https://img.shields.io/badge/version-3.0.0-8b5cf6?style=for-the-badge&labelColor=1e1b3a)
 
-Select anything on your screen. Draw around it, choose a specific area, or search the entire visible screen with Google Lens.
+<!--
+Chrome Web Store users / rating badges: after you publish, replace YOUR_EXTENSION_ID and uncomment.
 
-<br />
+[![Users](https://img.shields.io/chrome-web-store/users/YOUR_EXTENSION_ID?style=for-the-badge&logo=googlechrome&logoColor=white&color=8b5cf6&labelColor=1e1b3a)](https://chromewebstore.google.com/detail/YOUR_EXTENSION_ID)
+[![Rating](https://img.shields.io/chrome-web-store/rating/YOUR_EXTENSION_ID?style=for-the-badge&color=8b5cf6&labelColor=1e1b3a)](https://chromewebstore.google.com/detail/YOUR_EXTENSION_ID)
+-->
 
-[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-Add_to_Chrome-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/dpadfcjjnkjabijdiagaadnhnghemdmh)
+**Circle anything on your screen. Search it with Google Lens. One shortcut.**
 
-[![Manifest V3](https://img.shields.io/badge/Manifest-V3-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3/)
-[![Version](https://img.shields.io/badge/version-2.0.0-34A853?style=for-the-badge)](https://github.com/Aman-nitb-cse/circle-to-search/releases)
-[![License](https://img.shields.io/badge/License-MIT-FBBC05?style=for-the-badge)](LICENSE)
-
-<br />
-
-**[🌐 Chrome Web Store](https://chromewebstore.google.com/detail/dpadfcjjnkjabijdiagaadnhnghemdmh)** · **[▶ Watch Demo](https://www.youtube.com/watch?v=dJhkZ406E24)** · **[🐛 Report a Bug](https://github.com/Aman-nitb-cse/circle-to-search/issues)**
+[Install](#-install) · [Usage](#-usage) · [Features](#-features) · [How it works](#-how-it-works) · [Contribute](#-contributing)
 
 </div>
 
 ---
 
-## ✨ Discover Anything on Your Screen
+<img src="assets/features.svg" alt="How it works, UI and features" width="100%">
 
-Circle to Search brings a fast and intuitive visual search experience to your desktop browser.
+---
 
-Whether you're exploring products, identifying objects, discovering places, or finding similar images, simply select what you see and let Google Lens do the rest.
+## ✨ Features
 
-## 🚀 Features
+| | |
+|---|---|
+| ✏️ **Draw mode** | Circle anything with a freehand stroke, like Circle to Search on Android. |
+| ▭ **Rectangle mode** | Drag a precise box around the part of the page you want to search. |
+| 🖥️ **Full-screen search** | One shortcut captures the whole visible tab and sends it straight to Google Lens. |
+| 💬 **Default prompt** | Add up to 300 characters of text that is sent with every search (for example *"find similar products"*). Toggle it on or off anytime. |
+| 🌗 **Auto / Light / Dark** | The popup and the on-page toolbar follow your system theme, or you can pick one manually. |
+| ⚡ **Fast** | The screenshot is a JPEG, cropped inside the background service worker with `OffscreenCanvas`. |
+| 🔒 **Minimal permissions** | Only `activeTab`, `storage` and `scripting`. No access to all websites. |
 
-| Feature | Description |
-|:---|:---|
-| ✏️ **Draw Mode** | Freely draw around any object or area on your screen. |
-| ▫️ **Rectangle Mode** | Select a precise area by dragging between two corners. |
-| 🖥️ **Full Screen Mode** | Search the entire visible browser-tab viewport. |
-| ⌨️ **Keyboard Shortcut** | Activate visual search instantly using a configurable Chrome shortcut. |
-| ⚙️ **Custom Defaults** | Choose your preferred selection mode from the extension popup. |
-| 🎨 **Appearance** | Switch between Auto, Light, and Dark themes. |
-| 🔎 **Google Lens Integration** | Discover visually similar images and related information. |
+## 📦 Install
 
-## 🎬 See It in Action
+> Works on Chromium-based browsers that support Manifest V3 (Chrome, Edge, Brave, Opera, …).
 
-Watch how Circle to Search works in this quick demonstration.
+**From source (developer mode)**
 
-<div align="center">
+1. Download or clone this repository.
+   ```bash
+   git clone https://github.com/Aman-nitb-cse/circle-to-search.git
+   ```
+2. Open `chrome://extensions` and turn on **Developer mode**.
+3. Click **Load unpacked** and select the project folder (the one that contains `manifest.json`).
+4. Pin the extension from the puzzle-piece menu so the popup is one click away.
 
-<a href="https://www.youtube.com/watch?v=dJhkZ406E24">
-  <img src="https://img.youtube.com/vi/dJhkZ406E24/maxresdefault.jpg" alt="Circle to Search Demo" width="720" />
-</a>
+## 🚀 Usage
 
-### ▶ [Watch the Full Demo on YouTube](https://www.youtube.com/watch?v=dJhkZ406E24)
+1. Press a shortcut on any normal web page.
+2. **Draw** a loop or **drag** a rectangle around what you want to search.
+3. Google Lens opens in a new tab with your selection (and your prompt, if enabled).
 
-</div>
+| Action | Windows / Linux | macOS |
+|---|---|---|
+| Select an area (Rectangle / Draw) | <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd> |
+| Search the full screen | <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> |
+| Close the overlay | <kbd>Esc</kbd> | <kbd>Esc</kbd> |
 
-## 💡 How It Works
+Want different keys? Click a shortcut in the popup, or open `chrome://extensions/shortcuts`.
 
-Getting started is simple:
+> [!NOTE]
+> Chrome does not allow extensions to run on some pages (for example `chrome://` pages and the Chrome Web Store). Shortcuts will not work there.
 
-1. **Activate** Circle to Search using your configured keyboard shortcut.
-2. **Select** Draw, Rectangle, or Full Screen mode.
-3. **Highlight** the object, image, or area you want to explore.
-4. **Discover** visually similar results through Google Lens.
+### Popup settings
 
-That's it! No need to manually take a screenshot, save it, and upload it yourself.
+| Setting | What it does |
+|---|---|
+| **Mode** | Choose whether the overlay starts in *Draw* or *Rectangle*. |
+| **Prompt** | Optional text (max 300 chars) sent to Lens with every search, with an on/off switch. |
+| **Appearance** | Auto, Light or Dark. |
+| **Shortcuts** | Shows the current keys and links to the browser's shortcut settings. |
 
-## ⌨️ Keyboard Shortcut
+## ⚙️ How it works
 
-Activate Circle to Search directly using a keyboard shortcut.
-
-You can view or customize your shortcut here:
-
-```text
-chrome://extensions/shortcuts
+```mermaid
+flowchart LR
+    A[Keyboard command] --> B{Which one?}
+    B -->|Alt+Shift+S| C[content.js<br/>Draw / Rectangle overlay]
+    B -->|Alt+Shift+F| D[background.js<br/>capture visible tab]
+    C -->|selected bounds| D
+    D --> E[JPEG capture +<br/>OffscreenCanvas crop]
+    E --> F[(chrome.storage.local)]
+    F --> G[search_bridge.html]
+    G -->|multipart POST| H[Google Lens]
 ```
 
-The shortcut is configurable through Chrome's extension shortcut settings.
+| File | Role |
+|---|---|
+| `manifest.json` | MV3 manifest, permissions and the two keyboard commands. |
+| `background.js` | Service worker: handles commands, captures the tab, crops the image, opens the bridge page. |
+| `content.js` | Injected on demand: selection overlay with Draw / Rectangle and the floating toolbar. |
+| `search_bridge.html` / `.js` | Builds the upload form and posts the image (plus prompt) to Google Lens. |
+| `popup.html` / `.js` | Settings UI: mode, prompt, theme and shortcuts. |
 
-## 🎨 Appearance
+## 🔐 Privacy
 
-Circle to Search supports three appearance modes:
+- The image you select is sent to **Google Lens only**, the same as if you uploaded it there yourself.
+- The extension has **no analytics or tracking code** and talks to no server of its own.
+- Settings (mode, prompt, theme) are kept in `chrome.storage.local` on your device.
+- The temporary capture is removed from storage as soon as the search tab reads it.
 
-- ☀️ **Light Mode** – A clean and bright interface.
-- 🌙 **Dark Mode** – A comfortable dark interface.
-- 🔄 **Auto Mode** – Automatically adapts to your browser's appearance preference.
-
-## 🔐 Privacy & Security
-
-Your privacy matters.
-
-- **Local Selection Processing:** Selection interactions are handled locally in the browser.
-- **User-Initiated Searches:** The selected image is sent to Google Lens only when you initiate a search.
-- **Local Preferences:** Extension settings are stored using Chrome local storage.
-- **No Browsing History Collection:** The extension does not collect browsing history for its visual-search functionality.
-- **Limited Website Access:** The extension does not request broad, permanent host permissions.
-
-**Important:** Full Screen mode submits the entire visible browser-tab viewport when you initiate a search.
-
-Read our [Privacy Policy](PRIVACY.md) for more information.
-
-## 🌐 Get Circle to Search
+## 📈 Community & Stats
 
 <div align="center">
 
-### Ready to discover more?
+[![Star History Chart](https://api.star-history.com/svg?repos=Aman-nitb-cse/circle-to-search&type=Date&theme=dark)](https://star-history.com/#Aman-nitb-cse/circle-to-search&Date)
 
-Install Circle to Search directly from the Chrome Web Store.
+<br>
 
-<br />
-
-[![Add to Chrome](https://img.shields.io/badge/Chrome_Web_Store-Add_to_Chrome-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/dpadfcjjnkjabijdiagaadnhnghemdmh)
-
-<br />
-
-### [🚀 Install Circle to Search](https://chromewebstore.google.com/detail/dpadfcjjnkjabijdiagaadnhnghemdmh)
+![Repo size](https://img.shields.io/github/repo-size/Aman-nitb-cse/circle-to-search?style=flat-square&color=8b5cf6&labelColor=1e1b3a)
+![Top language](https://img.shields.io/github/languages/top/Aman-nitb-cse/circle-to-search?style=flat-square&color=8b5cf6&labelColor=1e1b3a)
+![Commit activity](https://img.shields.io/github/commit-activity/m/Aman-nitb-cse/circle-to-search?style=flat-square&color=8b5cf6&labelColor=1e1b3a)
+![Contributors](https://img.shields.io/github/contributors/Aman-nitb-cse/circle-to-search?style=flat-square&color=8b5cf6&labelColor=1e1b3a)
 
 </div>
 
----
+All the numbers above update automatically. If this project saves you time, a ⭐ helps others find it.
 
-## 🐛 Bug Reports & Contributions
+## 🤝 Contributing
 
-Found a bug or have an idea to improve Circle to Search?
+Bug reports and ideas are welcome.
 
-- 🐛 [Report an Issue](https://github.com/Aman-nitb-cse/circle-to-search/issues)
-- 💻 [Explore the Source Code](https://github.com/Aman-nitb-cse/circle-to-search)
-- 📦 [View Releases](https://github.com/Aman-nitb-cse/circle-to-search/releases)
+1. [Open an issue](https://github.com/Aman-nitb-cse/circle-to-search/issues/new) and describe the problem or idea.
+2. Fork the repo and create a branch: `git checkout -b feat/my-idea`.
+3. Load the folder as an unpacked extension and test your change.
+4. Open a pull request.
 
-Contributions, suggestions, and feedback are always welcome!
+## 🙏 Credits
 
-## 📬 Contact
-
-**Developer:** Aman Kumar Patel  
-**Email:** aman.nitb.cse@gmail.com
-
----
+Inspired by Circle to Search on Android. Visual search is powered by [Google Lens](https://lens.google.com). This project is an independent extension and is not affiliated with or endorsed by Google.
 
 <div align="center">
-
-### Made with ❤️ by Aman Kumar Patel
-
-**Draw. Search. Discover.**
-
-⭐ If you find Circle to Search useful, consider giving this project a star on GitHub!
-
-[GitHub Repository](https://github.com/Aman-nitb-cse/circle-to-search) · [Chrome Web Store](https://chromewebstore.google.com/detail/dpadfcjjnkjabijdiagaadnhnghemdmh) · [YouTube Demo](https://www.youtube.com/watch?v=dJhkZ406E24)
-
+<sub>Made with 💜 by <a href="https://github.com/Aman-nitb-cse">Aman</a></sub>
 </div>

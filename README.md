@@ -1,146 +1,154 @@
 <div align="center">
 
-<img src="assets/hero.svg" alt="Circle to Search" width="100%">
+<img src="assets/hero.svg" alt="Coding Keyboard Simulator" width="100%">
 
 <br>
 
-[![Stars](https://img.shields.io/github/stars/Aman-nitb-cse/circle-to-search?style=for-the-badge&logo=github&color=8b5cf6&labelColor=1e1b3a)](https://github.com/Aman-nitb-cse/circle-to-search/stargazers)
-[![Forks](https://img.shields.io/github/forks/Aman-nitb-cse/circle-to-search?style=for-the-badge&logo=github&color=8b5cf6&labelColor=1e1b3a)](https://github.com/Aman-nitb-cse/circle-to-search/network/members)
-[![Issues](https://img.shields.io/github/issues/Aman-nitb-cse/circle-to-search?style=for-the-badge&color=8b5cf6&labelColor=1e1b3a)](https://github.com/Aman-nitb-cse/circle-to-search/issues)
-[![Last commit](https://img.shields.io/github/last-commit/Aman-nitb-cse/circle-to-search?style=for-the-badge&color=8b5cf6&labelColor=1e1b3a)](https://github.com/Aman-nitb-cse/circle-to-search/commits)
-![Manifest V3](https://img.shields.io/badge/Manifest-V3-8b5cf6?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=1e1b3a)
-![Version](https://img.shields.io/badge/version-3.0.0-8b5cf6?style=for-the-badge&labelColor=1e1b3a)
+[![Stars](https://img.shields.io/github/stars/aman-nitb-cse/Coding-keyboard-simulator?style=for-the-badge&logo=github&color=38bdf8&labelColor=0f172a)](https://github.com/aman-nitb-cse/Coding-keyboard-simulator/stargazers)
+[![Forks](https://img.shields.io/github/forks/aman-nitb-cse/Coding-keyboard-simulator?style=for-the-badge&logo=git&color=2563eb&labelColor=0f172a)](https://github.com/aman-nitb-cse/Coding-keyboard-simulator/network/members)
+[![Issues](https://img.shields.io/github/issues/aman-nitb-cse/Coding-keyboard-simulator?style=for-the-badge&color=f59e0b&labelColor=0f172a)](https://github.com/aman-nitb-cse/Coding-keyboard-simulator/issues)
+[![Last commit](https://img.shields.io/github/last-commit/aman-nitb-cse/Coding-keyboard-simulator?style=for-the-badge&color=10b981&labelColor=0f172a)](https://github.com/aman-nitb-cse/Coding-keyboard-simulator/commits)
 
-<!--
-Chrome Web Store users / rating badges: after you publish, replace YOUR_EXTENSION_ID and uncomment.
+[![Chrome users](https://img.shields.io/chrome-web-store/users/dpadfcjjnkjabijdiagaadnhnghemdmh?style=flat-square&logo=googlechrome&logoColor=white&label=Users&color=4285F4)](https://chromewebstore.google.com/detail/dpadfcjjnkjabijdiagaadnhnghemdmh)
+[![Rating](https://img.shields.io/chrome-web-store/rating/dpadfcjjnkjabijdiagaadnhnghemdmh?style=flat-square&logo=googlechrome&logoColor=white&label=Rating&color=f59e0b)](https://chromewebstore.google.com/detail/dpadfcjjnkjabijdiagaadnhnghemdmh)
+![Manifest V3](https://img.shields.io/badge/Manifest-V3-2563eb?style=flat-square&logo=googlechrome&logoColor=white)
+![Chrome 111+](https://img.shields.io/badge/Chrome-111%2B-4285F4?style=flat-square&logo=googlechrome&logoColor=white)
+![Version](https://img.shields.io/badge/version-1.0.0-38bdf8?style=flat-square)
+![Vanilla JS](https://img.shields.io/badge/Vanilla-JavaScript-f7df1e?style=flat-square&logo=javascript&logoColor=black)
 
-[![Users](https://img.shields.io/chrome-web-store/users/YOUR_EXTENSION_ID?style=for-the-badge&logo=googlechrome&logoColor=white&color=8b5cf6&labelColor=1e1b3a)](https://chromewebstore.google.com/detail/YOUR_EXTENSION_ID)
-[![Rating](https://img.shields.io/chrome-web-store/rating/YOUR_EXTENSION_ID?style=for-the-badge&color=8b5cf6&labelColor=1e1b3a)](https://chromewebstore.google.com/detail/YOUR_EXTENSION_ID)
--->
+**Type or paste clipboard code into any web editor, with smart indent and bracket handling.**
 
-**Circle anything on your screen. Search it with Google Lens. One shortcut.**
-
-[Install](#-install) · [Usage](#-usage) · [Features](#-features) · [How it works](#-how-it-works) · [Contribute](#-contributing)
+[Install](https://chromewebstore.google.com/detail/dpadfcjjnkjabijdiagaadnhnghemdmh) · [Usage](#-usage) · [Features](#-features) · [How it works](#-how-it-works) · [Analytics](#-community--analytics) · [Report a bug](https://github.com/aman-nitb-cse/Coding-keyboard-simulator/issues/new)
 
 </div>
 
 ---
 
-<img src="assets/features.svg" alt="How it works, UI and features" width="100%">
+## ✨ Overview
 
----
+**Coding Keyboard Simulator** is a lightweight Chrome extension (Manifest V3). Copy some code, click inside an editor, press a shortcut, and the extension either **types it out like a human** or **pastes it instantly**, fixing indentation and auto-closed brackets along the way so the result matches your source exactly.
 
-## ✨ Features
+<div align="center">
+<img src="assets/features.svg" alt="UI and features" width="100%">
+</div>
 
-| | |
-|---|---|
-| ✏️ **Draw mode** | Circle anything with a freehand stroke, like Circle to Search on Android. |
-| ▭ **Rectangle mode** | Drag a precise box around the part of the page you want to search. |
-| 🖥️ **Full-screen search** | One shortcut captures the whole visible tab and sends it straight to Google Lens. |
-| 💬 **Default prompt** | Add up to 300 characters of text that is sent with every search (for example *"find similar products"*). Toggle it on or off anytime. |
-| 🌗 **Auto / Light / Dark** | The popup and the on-page toolbar follow your system theme, or you can pick one manually. |
-| ⚡ **Fast** | The screenshot is a JPEG, cropped inside the background service worker with `OffscreenCanvas`. |
-| 🔒 **Minimal permissions** | Only `activeTab`, `storage` and `scripting`. No access to all websites. |
+## 🚀 Features
+
+| | Feature | What it does |
+|---|---|---|
+| ⌨️ | **Human typing** | Natural keystroke rhythm (~55 WPM) with bursts, word pauses, longer pauses at new lines and `; { }`, and occasional "thinking" breaks. |
+| 📋 | **Direct paste** | Drops the clipboard contents into the editor instantly. |
+| 📐 | **Smart indent** | Looks at what the editor actually produced after each newline and corrects it, so every line ends with exactly the source indentation (tabs, spaces, auto-indent or none). |
+| 🔤 | **Bracket handling** | Cancels the closers that editors auto-insert for `( [ { " ' \`` and HTML tags, so nothing gets doubled. |
+| 🙈 | **Human typos** | Occasional QWERTY neighbour-key slips followed by a natural backspace correction. |
+| 🛑 | **Esc to stop** | Stop typing at any moment. A toast shows *Typing…*, *Done*, *Clipboard Empty* or *Click inside the editor first*. |
+| 🎛️ | **Custom shortcuts** | Rebind both shortcuts from Chrome's own keyboard settings. |
+| 🌐 | **Works in common editors** | Plain `<textarea>`, contenteditable, **Monaco**, **CodeMirror** and **Ace** based editors. |
 
 ## 📦 Install
 
-> Works on Chromium-based browsers that support Manifest V3 (Chrome, Edge, Brave, Opera, …).
+<div align="center">
 
-**From source (developer mode)**
+<a href="https://chromewebstore.google.com/detail/dpadfcjjnkjabijdiagaadnhnghemdmh">
+  <img src="https://img.shields.io/badge/Add%20to%20Chrome-Install%20from%20Chrome%20Web%20Store-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=0f172a" alt="Add to Chrome" height="48">
+</a>
 
-1. Download or clone this repository.
-   ```bash
-   git clone https://github.com/Aman-nitb-cse/circle-to-search.git
-   ```
-2. Open `chrome://extensions` and turn on **Developer mode**.
-3. Click **Load unpacked** and select the project folder (the one that contains `manifest.json`).
-4. Pin the extension from the puzzle-piece menu so the popup is one click away.
+</div>
 
-## 🚀 Usage
+1. Open the [**Chrome Web Store page**](https://chromewebstore.google.com/detail/dpadfcjjnkjabijdiagaadnhnghemdmh).
+2. Click **Add to Chrome**.
+3. Pin the extension to your toolbar for quick access to the popup.
 
-1. Press a shortcut on any normal web page.
-2. **Draw** a loop or **drag** a rectangle around what you want to search.
-3. Google Lens opens in a new tab with your selection (and your prompt, if enabled).
+## 🎮 Usage
 
-| Action | Windows / Linux | macOS |
-|---|---|---|
-| Select an area (Rectangle / Draw) | <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd> |
-| Search the full screen | <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> |
-| Close the overlay | <kbd>Esc</kbd> | <kbd>Esc</kbd> |
+1. Copy the code you want to insert.
+2. **Click inside** the target editor.
+3. Press a shortcut:
 
-Want different keys? Click a shortcut in the popup, or open `chrome://extensions/shortcuts`.
-
-> [!NOTE]
-> Chrome does not allow extensions to run on some pages (for example `chrome://` pages and the Chrome Web Store). Shortcuts will not work there.
-
-### Popup settings
-
-| Setting | What it does |
+| Shortcut | Action |
 |---|---|
-| **Mode** | Choose whether the overlay starts in *Draw* or *Rectangle*. |
-| **Prompt** | Optional text (max 300 chars) sent to Lens with every search, with an on/off switch. |
-| **Appearance** | Auto, Light or Dark. |
-| **Shortcuts** | Shows the current keys and links to the browser's shortcut settings. |
+| <kbd>Alt</kbd> + <kbd>V</kbd> | Human typing |
+| <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd> | Direct paste |
+| <kbd>Esc</kbd> | Stop typing |
 
-## ⚙️ How it works
+Want different keys? Open the popup and click **Record Key**, which takes you to `chrome://extensions/shortcuts`.
+
+## 🧠 How it works
 
 ```mermaid
 flowchart LR
-    A[Keyboard command] --> B{Which one?}
-    B -->|Alt+Shift+S| C[content.js<br/>Draw / Rectangle overlay]
-    B -->|Alt+Shift+F| D[background.js<br/>capture visible tab]
-    C -->|selected bounds| D
-    D --> E[JPEG capture +<br/>OffscreenCanvas crop]
-    E --> F[(chrome.storage.local)]
-    F --> G[search_bridge.html]
-    G -->|multipart POST| H[Google Lens]
+    A[Shortcut pressed] --> B[background.js]
+    B --> C[Inject scripts into the tab]
+    C --> D[offscreen.js reads clipboard]
+    D --> E{Mode}
+    E -->|Alt+V| F[ks-human.js: cadence + typos]
+    E -->|Alt+Shift+V| G[Direct paste]
+    F --> H[ks-editor.js: Monaco / CodeMirror / Ace / textarea]
+    G --> H
+    H --> I[Smart indent + bracket cancel]
+    I --> J[ks-toast.js: status toast]
 ```
 
 | File | Role |
 |---|---|
-| `manifest.json` | MV3 manifest, permissions and the two keyboard commands. |
-| `background.js` | Service worker: handles commands, captures the tab, crops the image, opens the bridge page. |
-| `content.js` | Injected on demand: selection overlay with Draw / Rectangle and the floating toolbar. |
-| `search_bridge.html` / `.js` | Builds the upload form and posts the image (plus prompt) to Google Lens. |
-| `popup.html` / `.js` | Settings UI: mode, prompt, theme and shortcuts. |
+| `manifest.json` | MV3 manifest, shortcuts (`human-type`, `direct-paste`), permissions |
+| `background.js` | Handles commands and injects the content scripts |
+| `offscreen.html/js` | Reads the clipboard via an offscreen document |
+| `content.js` | Typing loop, smart indent, bracket cancel |
+| `ks-human.js` | Human keystroke timing and QWERTY typo helpers |
+| `ks-editor.js` | Editor detection and text insertion |
+| `page-bridge.js` | Page-world bridge for Monaco / CodeMirror / Ace APIs |
+| `ks-toast.js` | Shadow-DOM toast notifications |
+| `popup.html/js` | Popup UI showing the current shortcuts |
 
-## 🔐 Privacy
+**Permissions:** `activeTab`, `scripting`, `clipboardRead`, `offscreen`. The extension only acts on the tab where you press a shortcut.
 
-- The image you select is sent to **Google Lens only**, the same as if you uploaded it there yourself.
-- The extension has **no analytics or tracking code** and talks to no server of its own.
-- Settings (mode, prompt, theme) are kept in `chrome.storage.local` on your device.
-- The temporary capture is removed from storage as soon as the search tab reads it.
-
-## 📈 Community & Stats
+## 📊 Community & Analytics
 
 <div align="center">
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Aman-nitb-cse/circle-to-search&type=Date&theme=dark)](https://star-history.com/#Aman-nitb-cse/circle-to-search&Date)
+### ⭐ Star history
 
-<br>
+<a href="https://star-history.com/#aman-nitb-cse/Coding-keyboard-simulator&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=aman-nitb-cse/Coding-keyboard-simulator&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=aman-nitb-cse/Coding-keyboard-simulator&type=Date" />
+    <img alt="Star history chart" src="https://api.star-history.com/svg?repos=aman-nitb-cse/Coding-keyboard-simulator&type=Date" width="640" />
+  </picture>
+</a>
 
-![Repo size](https://img.shields.io/github/repo-size/Aman-nitb-cse/circle-to-search?style=flat-square&color=8b5cf6&labelColor=1e1b3a)
-![Top language](https://img.shields.io/github/languages/top/Aman-nitb-cse/circle-to-search?style=flat-square&color=8b5cf6&labelColor=1e1b3a)
-![Commit activity](https://img.shields.io/github/commit-activity/m/Aman-nitb-cse/circle-to-search?style=flat-square&color=8b5cf6&labelColor=1e1b3a)
-![Contributors](https://img.shields.io/github/contributors/Aman-nitb-cse/circle-to-search?style=flat-square&color=8b5cf6&labelColor=1e1b3a)
+### 👥 Contributors
+
+<a href="https://github.com/aman-nitb-cse/Coding-keyboard-simulator/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=aman-nitb-cse/Coding-keyboard-simulator" alt="Contributors" />
+</a>
+
+### 📥 Chrome Web Store & activity
+
+[![Users](https://img.shields.io/chrome-web-store/users/dpadfcjjnkjabijdiagaadnhnghemdmh?style=for-the-badge&logo=googlechrome&logoColor=white&label=Users&color=4285F4&labelColor=0f172a)](https://chromewebstore.google.com/detail/dpadfcjjnkjabijdiagaadnhnghemdmh)
+[![Rating](https://img.shields.io/chrome-web-store/rating/dpadfcjjnkjabijdiagaadnhnghemdmh?style=for-the-badge&label=Rating&color=f59e0b&labelColor=0f172a)](https://chromewebstore.google.com/detail/dpadfcjjnkjabijdiagaadnhnghemdmh)
+[![Store version](https://img.shields.io/chrome-web-store/v/dpadfcjjnkjabijdiagaadnhnghemdmh?style=for-the-badge&label=Store%20version&color=10b981&labelColor=0f172a)](https://chromewebstore.google.com/detail/dpadfcjjnkjabijdiagaadnhnghemdmh)
+![Commit activity](https://img.shields.io/github/commit-activity/m/aman-nitb-cse/Coding-keyboard-simulator?style=for-the-badge&label=Commits%2Fmonth&color=10b981&labelColor=0f172a)
+![Repo size](https://img.shields.io/github/repo-size/aman-nitb-cse/Coding-keyboard-simulator?style=for-the-badge&color=a78bfa&labelColor=0f172a)
 
 </div>
 
-All the numbers above update automatically. If this project saves you time, a ⭐ helps others find it.
+## 🐞 Feedback
+
+Found a bug or want a feature? Click the 🐞 icon in the popup (it opens a pre-filled issue) or [open an issue](https://github.com/aman-nitb-cse/Coding-keyboard-simulator/issues/new). Please include the site/editor you used (e.g. LeetCode, Monaco, CodeMirror) and your Chrome version.
 
 ## 🤝 Contributing
 
-Bug reports and ideas are welcome.
+1. Fork the repo and create a branch: `git checkout -b feature/my-idea`
+2. Make your changes and test them in Chrome
+3. Open a pull request
 
-1. [Open an issue](https://github.com/Aman-nitb-cse/circle-to-search/issues/new) and describe the problem or idea.
-2. Fork the repo and create a branch: `git checkout -b feat/my-idea`.
-3. Load the folder as an unpacked extension and test your change.
-4. Open a pull request.
+## 📄 License
 
-## 🙏 Credits
-
-Inspired by Circle to Search on Android. Visual search is powered by [Google Lens](https://lens.google.com). This project is an independent extension and is not affiliated with or endorsed by Google.
+Add a `LICENSE` file (MIT is a common choice) and update this section.
 
 <div align="center">
-<sub>Made with 💜 by <a href="https://github.com/Aman-nitb-cse">Aman</a></sub>
+
+Made with ⌨️ by [aman-nitb-cse](https://github.com/aman-nitb-cse) · If this helped you, drop a ⭐
+
 </div>
